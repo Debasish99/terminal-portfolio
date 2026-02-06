@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1768850131804",
+    "title": "tedt",
+    "slug": "tedt",
+    "content": "kadjb",
+    "date": "2026-01-19T19:15:31.804Z",
+    "updatedAt": "2026-01-19T19:15:31.804Z"
+  },
+  {
+    "title": "Why I Love Terminal Interfaces",
+    "slug": "why-i-love-terminal-interfaces",
+    "content": "# # # # # Why I Love Terminal Interfaces\n\nBecause they make you think.\n\nTerminals remove distractions.\nThey force clarity.\nThey reward precision.\n\n![Terminal Window](/window.svg)\n\n```bash\nls -la\ncd /home/debasish\n```\n\nThis blog is inspired by **Linux**, **DOS**, and **old systems**.",
+    "date": "2026-01-17T23:58:39.438Z",
+    "updatedAt": "2026-01-17T23:59:10.945Z"
+  }
+]
