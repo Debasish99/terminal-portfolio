@@ -51,20 +51,40 @@ export function BackgroundProvider({ children }: { children: ReactNode }) {
     if (isVideo) {
       setLoading(false);
     } else {
+      setLoading(true);
       const img = new Image();
-      img.src = bgFile;
       
-      const timeout = setTimeout(() => {
-        setLoading(false);
-      }, 5000);
+      let imageLoaded = false;
+      let minTimePassed = false;
+
+      const checkFinished = () => {
+        if (imageLoaded && minTimePassed) {
+          setLoading(false);
+        }
+      };
+
+      // Ensure loader stays for at least 2 seconds for the "retro" feel
+      const minTimer = setTimeout(() => {
+        minTimePassed = true;
+        checkFinished();
+      }, 2500);
 
       img.onload = () => {
-        clearTimeout(timeout);
-        setLoading(false);
+        imageLoaded = true;
+        checkFinished();
       };
+      
       img.onerror = () => {
-        clearTimeout(timeout);
-        setLoading(false);
+        imageLoaded = true; // Still stop loading on error so site is usable
+        checkFinished();
+      };
+
+      img.src = bgFile;
+
+      return () => {
+        clearTimeout(minTimer);
+        img.onload = null;
+        img.onerror = null;
       };
     }
   }, [bgFile]);
